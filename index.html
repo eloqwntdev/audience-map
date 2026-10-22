@@ -2969,6 +2969,7 @@ html.menu-open, html.menu-open body { overflow: hidden; }
     const q = $('.faq-q', item);
     q.addEventListener('click', () => {
       const open = !item.classList.contains('open');
+      if (open) $$('.faq-item.open').forEach(o => { if (o !== item) { o.classList.remove('open'); $('.faq-q', o).setAttribute('aria-expanded', false); } });
       item.classList.toggle('open', open); q.setAttribute('aria-expanded', open);
     });
   });
